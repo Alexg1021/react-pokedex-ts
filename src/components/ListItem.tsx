@@ -2,24 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface ListItemProps {
-  poke: Pokemon;
-  index: number;
+  pokemon: Pokemon;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ poke, index }) => {
+const ListItem: React.FC<ListItemProps> = ({ pokemon }) => {
   return (
-    <li
-      className='list-group-item d-flex justify-content-around align-items-center'
-      key={index}>
+    <li className='list-group-item d-flex justify-content-around align-items-center'>
       {/* section img pulled to left */}
-      <img src={poke.img} alt={poke.name} />
+      <img src={pokemon.img} alt={pokemon.name} />
       <div className='poke-info'>
         <h2>
-          <Link to={`/pokemon/${poke.name.toLowerCase()}`}>{poke.name}</Link>
+          <Link to={`/pokemon/${pokemon.name.toLowerCase()}`}>
+            {pokemon.name}
+          </Link>
         </h2>
         <div>
-          <small>Height: {poke.height}</small>
-          <small>Weight: {poke.weight}</small>
+          <small>Height: {pokemon.height}</small>
+          <small>Weight: {pokemon.weight}</small>
         </div>
       </div>
       {/* section pokemon name that is wrapped in a link */}
